@@ -8,3 +8,8 @@ export const userLoginAction = (user) => ({
 export const userSignUpAction = () => ({
   type: actionTypes.userSignUp,
 });
+
+export const loadUsersAction = (users) => ({
+  type: actionTypes.loadUsers,
+  users,
+});
