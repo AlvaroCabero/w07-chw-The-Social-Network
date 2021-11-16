@@ -17,12 +17,12 @@ const usersReducer = (
       };
       break;
 
-    case actionTypes.userSingUp:
-      newUser = {
-        isAuthenticated: false,
-        user: {},
-      };
-      break;
+    // case actionTypes.userSingUp:
+    //   newUser = {
+    //     isAuthenticated: false,
+    //     user: action.user,
+    //   };
+    //   break;
 
     default:
       newUser = { ...user };

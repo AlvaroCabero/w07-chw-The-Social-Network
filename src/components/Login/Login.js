@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { Link /*, useNavigate*/ } from "react-router-dom";
+// import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import useUser from "../../redux/hooks/useUser";
 
 const Login = () => {
-  const user = useSelector(({ user }) => user);
+  // const user = useSelector(user, userLogin);
   const initialData = {
     username: "",
     password: "",
   };
-
+  const { userLogin } = useUser();
   // const navigate = useNavigate();
 
   const [userData, setNewUserData] = useState(initialData);
@@ -24,9 +25,9 @@ const Login = () => {
     setNewUserData({ ...userData, [event.target.id]: event.target.value });
   };
 
-  const onSubmit = (evento) => {
-    evento.preventDefault();
-    user(userData);
+  const onSubmit = (event) => {
+    event.preventDefault();
+    userLogin(userData);
     setNewUserData(initialData);
   };
 
@@ -45,7 +46,7 @@ const Login = () => {
             type="text"
             className="form-control"
             id="username"
-            placeholder="Choose an username"
+            placeholder="Username"
           />
         </div>
         <div className="form-group">
@@ -57,7 +58,7 @@ const Login = () => {
             type="password"
             className="form-control"
             id="password"
-            placeholder="Choose a password"
+            placeholder="Set a Password"
           />
         </div>
 
@@ -65,8 +66,8 @@ const Login = () => {
           LOGIN
         </button>
 
-        <Link to="/signup">
-          <button type="button" className="btn btn-info">
+        <Link to="/singup">
+          <button disabled={!isDisabled} type="button" className="btn btn-info">
             SIGN UP
           </button>
         </Link>

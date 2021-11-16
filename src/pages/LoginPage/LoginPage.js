@@ -5,7 +5,11 @@ import Login from "../../components/Login/Login";
 // import Signup from "../../components/SignUp/SignUp";
 
 function LoginPage() {
-  return <Login />;
+  return (
+    <>
+      <Login />
+    </>
+  );
 }
 
 export default LoginPage;
