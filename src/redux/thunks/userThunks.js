@@ -1,15 +1,7 @@
-
 import axios from "axios";
-import {
-  
-  loadUsersAction,
-  
-} from "../actions/actionCreator";
-import jwtDecode from "jwt-decode";
+import { loadUsersAction } from "../actions/actionCreator";
 
-const response = await axios.get(urlAPI, {Authorization:`Bearer ${token}`}); 
-
-const apiURL=
+const apiURL = process.env.REACT_APP_URL_API_HEROKU;
 
 export const loadUsersThunks = () => async (dispatch) => {
   const { token } = JSON.parse(localStorage.getItem("superToken"));
